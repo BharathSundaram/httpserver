@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Upload a artifactory</h1>
+<form id="uploadForm" action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" id="fileInput">
+    <br>
+    <br>
+    <input type="submit" value="Upload">
+</form>
+<div id="progressWrapper" style="display:none;">
+    <progress id="progressBar" value="0" max="100"></progress>
+    <span id="status"></span>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

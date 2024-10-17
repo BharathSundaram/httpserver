@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Download Files{% endblock %}
+
+{% block header %}Download Large Files{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Size (MB)</th>
+                <th>Last Modified</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in files %}
+            <tr>
+                <td>{{ file.name }}</td>
+                <td>{{ file.size_mb }}</td>
+                <td>{{ file.last_modified }}</td>
+                <td><a href="/download/{{ file.name }}" class="download-btn">Download</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
